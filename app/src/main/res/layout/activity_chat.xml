@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#ffffff"
+    android:id="@+id/root"
+    tools:context=".activity.ChatActivity">
+    
+    <View
+        android:id="@+id/topView"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:background="@drawable/background_border_bottom"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <View
+        android:id="@+id/bottomView"
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:background="#bfccdf"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <FrameLayout
+        android:id="@+id/buttonBack"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        app:layout_constraintStart_toStartOf="@+id/topView"
+        app:layout_constraintEnd_toStartOf="@+id/textViewRoomNumber"
+        app:layout_constraintBottom_toBottomOf="@+id/topView"
+        app:layout_constraintTop_toTopOf="@+id/topView" >
+        <ImageView
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_gravity="center"
+            android:background="@drawable/ic_action_back"
+            android:contentDescription="Back" />
+    </FrameLayout>
+
+    <TextView
+        android:id="@+id/textViewRoomNumber"
+        android:layout_width="0dp"
+        android:layout_height="50dp"
+        android:layout_margin="5dp"
+        android:text="Phong 01"
+        android:textSize="20sp"
+        android:gravity="center_vertical"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/buttonBack"
+        app:layout_constraintEnd_toStartOf="@+id/buttonNotification" />
+
+    <FrameLayout
+        android:id="@+id/buttonNotification"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        app:layout_constraintStart_toEndOf="@+id/textViewRoomNumber"
+        app:layout_constraintEnd_toEndOf="@+id/topView"
+        app:layout_constraintTop_toTopOf="@+id/topView"
+        app:layout_constraintBottom_toBottomOf="@+id/topView">
+        <ImageView
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_gravity="center"
+            android:background="@drawable/ic_action_notification_on"
+            android:contentDescription="Back" />
+    </FrameLayout>
+
+    <FrameLayout
+        android:id="@+id/buttonEmoji"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:layout_marginHorizontal="8dp"
+        app:layout_constraintStart_toStartOf="@+id/bottomView"
+        app:layout_constraintEnd_toStartOf="@+id/editTextMessage"
+        app:layout_constraintTop_toTopOf="@+id/bottomView"
+        app:layout_constraintBottom_toBottomOf="@+id/bottomView">
+        <ImageView
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:layout_gravity="center"
+            android:background="@drawable/ic_action_emoji"
+            android:contentDescription="Back" />
+    </FrameLayout>
+
+    <EditText
+        android:id="@+id/editTextMessage"
+        android:layout_width="0dp"
+        android:layout_height="36dp"
+        android:layout_marginVertical="10dp"
+        android:paddingHorizontal="16dp"
+        android:background="@drawable/background_message_input"
+        android:inputType="text"
+        android:hint="Nhap tin nhan"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/buttonEmoji"
+        app:layout_constraintEnd_toStartOf="@+id/buttonSend"/>
+
+    <FrameLayout
+        android:id="@+id/buttonSend"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:layout_marginHorizontal="8dp"
+        app:layout_constraintStart_toEndOf="@+id/editTextMessage"
+        app:layout_constraintEnd_toEndOf="@+id/bottomView"
+        app:layout_constraintTop_toTopOf="@+id/bottomView"
+        app:layout_constraintBottom_toBottomOf="@+id/bottomView">
+        <ImageView
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:layout_gravity="center"
+            android:background="@drawable/ic_action_send"
+            android:contentDescription="Back" />
+    </FrameLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintTop_toBottomOf="@+id/topView"
+        app:layout_constraintBottom_toTopOf="@+id/bottomView" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
