@@ -1,4 +1,4 @@
-package com.firstapp.ql_ktx.model;
+package com.example.ktx_ute.model;
 
 public class Message {
     private String username;

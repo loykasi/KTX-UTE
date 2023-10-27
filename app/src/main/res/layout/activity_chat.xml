@@ -63,6 +63,7 @@
         app:layout_constraintTop_toTopOf="@+id/topView"
         app:layout_constraintBottom_toBottomOf="@+id/topView">
         <ImageView
+            android:id="@+id/imageNotification"
             android:layout_width="40dp"
             android:layout_height="40dp"
             android:layout_gravity="center"

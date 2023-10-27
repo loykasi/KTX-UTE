@@ -1,4 +1,4 @@
-package com.firstapp.ql_ktx.activity;
+package com.example.ktx_ute.activity;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.app.AppCompatDelegate;
@@ -10,10 +10,11 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.FrameLayout;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 
-import com.firstapp.ql_ktx.model.Message;
-import com.firstapp.ql_ktx.adapter.MessageAdapter;
-import com.firstapp.ql_ktx.R;
+import com.example.ktx_ute.model.Message;
+import com.example.ktx_ute.adapter.MessageAdapter;
+import com.example.ktx_ute.R;
 import com.vanniktech.emoji.EmojiManager;
 import com.vanniktech.emoji.EmojiPopup;
 import com.vanniktech.emoji.google.GoogleEmojiProvider;
@@ -27,8 +28,11 @@ public class ChatActivity extends AppCompatActivity {
 
     private RecyclerView recyclerView;
     private EditText messageInput;
+    private ImageView imageNotification;
     private MessageAdapter messageAdapter;
     private List<Message> messages;
+
+    private boolean isEnableNotification = true;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,6 +45,9 @@ public class ChatActivity extends AppCompatActivity {
         messageInput = findViewById(R.id.editTextMessage);
         FrameLayout emojiButton = findViewById(R.id.buttonEmoji);
         FrameLayout sendButton = findViewById(R.id.buttonSend);
+        FrameLayout backButton = findViewById(R.id.buttonBack);
+        FrameLayout notificationButton = findViewById(R.id.buttonNotification);
+        imageNotification = findViewById(R.id.imageNotification);
 
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
         linearLayoutManager.setOrientation(RecyclerView.VERTICAL);
@@ -68,9 +75,31 @@ public class ChatActivity extends AppCompatActivity {
             }
         });
 
-        
+        notificationButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                toggleNotification();
+            }
+        });
+
+        backButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                // load activity here
+            }
+        });
 
         generateFakeChat();
+    }
+
+    private void toggleNotification()
+    {
+        isEnableNotification = !isEnableNotification;
+        if (isEnableNotification) {
+            imageNotification.setImageResource(R.drawable.ic_action_notification_on);
+        } else {
+            imageNotification.setImageResource(R.drawable.ic_action_notification_off);
+        }
     }
 
     private void generateFakeChat() {

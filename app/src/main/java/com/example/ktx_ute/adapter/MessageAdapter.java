@@ -1,4 +1,4 @@
-package com.firstapp.ql_ktx.adapter;
+package com.example.ktx_ute.adapter;
 
 import android.content.Context;
 import android.util.Log;
@@ -10,8 +10,8 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.firstapp.ql_ktx.model.Message;
-import com.firstapp.ql_ktx.R;
+import com.example.ktx_ute.model.Message;
+import com.example.ktx_ute.R;
 
 import java.util.List;
 
